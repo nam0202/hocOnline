@@ -1,6 +1,6 @@
 ![](http://res.cloudinary.com/hashnode/image/upload/w_200/v1466495663/static_imgs/mern/v2/mernio-logo.png)
 
-# mern-starter
+# mern-starter-hocOnline
 ![title](https://travis-ci.org/Hashnode/mern-starter.svg?branch=v2.0.0)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Discuss on Hashnode](
@@ -273,3 +273,8 @@ This warning is visible only on development and totally harmless. This occurs to
 
 ## License
 MERN is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+
+## Author
+[LongNN](http://www.opensource.org/licenses/MIT) -
+[NamPH](http://www.opensource.org/licenses/MIT)
+
