@@ -12,6 +12,9 @@ class LoginModule {
         let body = req.body;
         body.password = bcrypt.hashSync(body.password);
         try {
+            console.log(req.body);
+            const value = await this.db('user').insert({name:body.username});
+            body.user_id = value;
             const data = await this.db('login').insert(body);
             res.status(200).send({ message: 'success', user: data });
         }catch (e) {
