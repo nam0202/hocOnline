@@ -1,0 +1,13 @@
+{
+    "modules": [
+        {
+          "name": "upload",
+          "summary": "Upload API",
+          "method": "POST",
+          "path": "/upload",
+          "source": "module.js",
+          "function": "upFile",
+          "properties": []
+        }
+    ]
+}
