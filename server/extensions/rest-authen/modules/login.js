@@ -42,7 +42,7 @@ class LoginModule {
                     res.status(200).send({ Authorization: true, token: token });
                 }
             } else {
-                return res.status(401).send('Wrong UserName or PassWord');
+                return res.status(401).send('Wrong Username or Password');
             }
         } catch (e) {
             console.log(e.toString());
