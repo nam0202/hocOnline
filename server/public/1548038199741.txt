@@ -1,0 +1,46 @@
+
+
+java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate \
+  -i http://petstore.swagger.io/v2/swagger.json \
+  -l typescript-fetch \
+  -o samples/client/petstore/java
+
+
+generate -i /home/nam/Desktop/swagger.json -l typescript-fetch -o /home/nam/Desktop/sk
+xác định cấu trúc xong rồi mới run
+
+implement CodegenConfig.java
+
+extend DefaultCodegen.java
+
+với mỗi OperationGroup tạo ra m1 file d
+
+
+
+1: Tự build
+Config?
+	
+2: Config build
+tìm ra đc chỗ nào run
+đọc xem nó run ntn
+forcus vào fecth
+
+DefaultCode
+CodegenConfig
+
+Hiện tại file Default nó sẽ lưu vào output để lg thì chưa biết
+Dự đoán in ra file dựa vào output
+
+
+Resource có file mẫu
+Dự đoán dựa trên file mẫu này để in ra
+
+
+Trong filesource
+{{1 biến nào đó sẽ đc truyền vào }} biến này dựa vào file DefaultCode hoặc chính là file codegen
+
+Cần chuẩn bị 4 file để xem
+1. trong source
+2. swagger.json
+3. kết quả
+4. code gen

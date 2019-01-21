@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "namph",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "co": "^4.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-acl": "^2.0.5",
+    "express-fileupload": "^1.1.1-alpha.1",
+    "jsonwebtoken": "^8.4.0",
+    "knex": "^0.16.3",
+    "lodash.isfunction": "^3.0.9",
+    "lodash.remove": "^4.7.0",
+    "make-array": "^1.0.5",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "swagger-ui-express": "^4.0.2",
+    "yamljs": "^0.3.0"
+  }
+}
