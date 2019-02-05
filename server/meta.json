@@ -68,7 +68,7 @@
       }
     },
     {
-      "type": {
+      "type_class": {
         "ref": [
           {
             "many": "class",
@@ -108,66 +108,14 @@
       }
     },
     {
-      "lab": {
-        "ref": [
-          {
-            "many": "data",
-            "key": "lab_id"
-          }
-        ],
-        "api": "all",
-        "properties": [
-          {
-            "name": "id",
-            "type": "number"
-          },
-          {
-            "name": "content",
-            "type": "string"
-          },
-          {
-            "name": "title",
-            "type": "string"
-          },
-          {
-            "name": "score",
-            "type": "number"
-          }
-        ]
-      }
-    },
-    {
-      "exercise": {
-        "ref": [
-          {
-            "many": "data",
-            "key": "exercise_id"
-          }
-        ],
-        "api": "all",
-        "properties": [
-          {
-            "name": "id",
-            "type": "number"
-          },
-          {
-            "name": "content",
-            "type": "string"
-          },
-          {
-            "name": "title",
-            "type": "string"
-          },
-          {
-            "name": "class_id",
-            "type": "number"
-          }
-        ]
-      }
-    },
-    {
       "data": {
         "api": "all",
+        "ref": [
+          {
+            "one": "Post",
+            "key": "post_id"
+          }
+        ],
         "properties": [
           {
             "name": "id",
@@ -182,18 +130,57 @@
             "type": "string"
           },
           {
-            "name": "exercise_id",
-            "type": "number"
-          },
-          {
-            "name": "lab_id",
+            "name": "post_id",
             "type": "number"
           }
         ]
       }
     },
     {
-      "group": {
+      "Post": {
+        "api": "all",
+        "ref": [
+          {
+            "many": "data",
+            "key": "post_id"
+          },
+          {
+            "one": "user",
+            "key": "user_id"
+          },
+          {
+            "one": "class",
+            "key": "class_id"
+          },
+          {
+            "one": "type_post",
+            "key": "type_post_id"
+          },
+          {
+            "many":"Comment",
+            "key":"post_id"
+          }
+        ],
+        "properties": [
+          {
+            "name": "content",
+            "type": "string"
+          },
+          {
+            "name": "created",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "type_post": {
+        "ref": [
+          {
+            "many": "Post",
+            "key": "type_post_id"
+          }
+        ],
         "api": "all",
         "properties": [
           {
@@ -203,10 +190,27 @@
           {
             "name": "name",
             "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "Comment":{
+        "api":"all",
+        "ref":[
+          {
+            "one":"Post",
+            "key":"Post_id"
           },
           {
-            "name": "class_id",
-            "type": "number"
+            "one":"user",
+            "key":"user_id"
+          }
+        ],
+        "properties":[
+          {
+            "name":"Content",
+            "type":"string"
           }
         ]
       }

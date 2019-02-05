@@ -4,7 +4,7 @@
   "description": "server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "namph",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "make-array": "^1.0.5",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
+    "socket.io": "^2.2.0",
     "swagger-ui-express": "^4.0.2",
     "yamljs": "^0.3.0"
   }
