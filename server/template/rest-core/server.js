@@ -14,11 +14,13 @@ const fileUpload = require('express-fileupload');
 const limit = config.global('server')['limit'] || 10;
 const path = require('path');
 const cors = require('cors');
+const SocketIO = require('./socket');
 class Server {
 
     constructor(_rootPath) {
         config.load([GLOBAL_PATH, METADATA_PATH]);
         this.app = express();
+        this.http = require('http').Server(this.app);
         this.rootPath = _rootPath;
         new Hook();
         console.log(_rootPath);
@@ -40,7 +42,11 @@ class Server {
         this.app.use('/api', new ApiRouter().getRouter());
     }
     listen() {
-        this.app.listen(config.global('server')['port'], () => {
+        // this.app.listen(config.global('server')['port'], () => {
+        //     console.log('Server is running at ... ' + config.global('server')['port']);
+        // });
+        new SocketIO(this.http);
+        this.http.listen(config.global('server')['port'], () => {
             console.log('Server is running at ... ' + config.global('server')['port']);
         });
     }
