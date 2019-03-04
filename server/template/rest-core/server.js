@@ -46,9 +46,8 @@ class Server {
         //     console.log('Server is running at ... ' + config.global('server')['port']);
         // });
         new SocketIO(this.http);
-        let PORT = process.env.PORT || 3000;
-        this.http.listen(PORT, () => {
-            console.log('Server is running at ... ' +PORT);//+ config.global('server')['port']);
+        this.app.listen(config.global('server')['port'], () => {
+            console.log('Server is running at ... ' + config.global('server')['port']);
         });
     }
     start(dirLog) {
