@@ -5,11 +5,11 @@
     "static": "public"
   },
   "database": {
-    "host": "localhost",
+    "host": "210.211.96.153",
     "driver": "mysql",
     "user": "root",
     "port": 3306,
-    "password": "root@123",
+    "password": "toor",
     "name": "classOnline"
   },
   "cors":{
