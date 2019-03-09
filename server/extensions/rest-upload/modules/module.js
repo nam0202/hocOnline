@@ -8,9 +8,9 @@ class Upload {
     }
 
     upFile(req, res) {
-        let dir = req.body.dir;
-        let name = req.body.name;
-        console.log(req.body.name);
+        let dir = req.query.dir;
+        let name = req.query.name;
+        console.log(req.query);
         if (Object.keys(req.files).length == 0) {
             return res.status(400).send('No files were uploaded.');
         }

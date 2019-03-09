@@ -214,6 +214,56 @@
           }
         ]
       }
+    },
+    {
+      "notifycation":{
+        "api":"all",
+        "properties":[
+          {
+            "name":"id",
+            "type":"number"
+          },
+          {
+            "name":"title",
+            "type":"string"
+          },
+          {
+            "name":"days",
+            "type":"time"
+          },
+          {
+            "name":"class_id",
+            "type":"number"
+          }
+        ]
+      }
+    },
+    {
+      "infor_notify":{
+        "api":"all",
+        "properties":[
+          {
+            "name":"id",
+            "type":"number"
+          },
+          {
+            "name":"time",
+            "type":"time"
+          },
+          {
+            "name":"content",
+            "type":"string"
+          },
+          {
+            "name":"isAlarm",
+            "type":"number"
+          },
+          {
+            "name":"notifycation_id",
+            "type":"number"
+          }
+        ]
+      }
     }
   ]
 }

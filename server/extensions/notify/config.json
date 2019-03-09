@@ -1,0 +1,36 @@
+{
+    "modules": [
+        {
+            "name": "GetNotify",
+            "summary": "Get Notify",
+            "method": "GET",
+            "path": "/get-notify",
+            "source": "module.js",
+            "function": "getNotify",
+            "properties": [
+                {
+                    "name": "class_id",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "name": "PostNotify",
+            "summary": "Post API",
+            "method": "POST",
+            "path": "/post-notify",
+            "source": "module.js",
+            "function": "saveNotify",
+            "properties": [
+                {
+                    "name": "dir",
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}

@@ -24,7 +24,6 @@ class Upload {
             dir = path.join(dir, extDir);
         }
         let Dir = [];
-        console.log(__dirname);
         let keys = Object.keys(files);
         return new Promise(async (resolve, reject) => {
             for (let i = 0; i < keys.length; i++) {
@@ -32,7 +31,9 @@ class Upload {
                 let dirSave = path.join(__dirname, '../', '../', '../', dir, inName + '.' + this.getExt(files[keys[i]]));
                 console.log(dirSave);
                 await this.mv(files[keys[i]], dirSave).then((data) => {
-                    Dir.push({ name: this.getName(files[keys[i]]), link: data });
+                    let name =  data.split('/')[data.split('/').length-1];
+                    let url = extDir + '/' + name;
+                    Dir.push({ name: this.getName(files[keys[i]]), link: url });
                 }).catch((err) => {
                     reject(err);
                     Dir.push({ name: this.getName(files[keys[i]]), error: err });

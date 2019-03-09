@@ -398,3 +398,42 @@ UNLOCK TABLES;
 
 -- Dump completed on 2019-02-08  8:40:07
 
+-- -----------------------------------------------------
+-- Table `hocOnline`.`notifycation`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `notifycation` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(200) NULL,
+  `days` DATE NULL,
+  `class_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_notifycation_class1_idx` (`class_id` ASC),
+  CONSTRAINT `fk_notifycation_class1`
+    FOREIGN KEY (`class_id`)
+    REFERENCES `class` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin;
+
+
+-- -----------------------------------------------------
+-- Table `hocOnline`.`infor_notify`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `infor_notify` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `time` TIME NULL,
+  `content` TEXT NULL,
+  `isAlarm` INT NULL DEFAULT 1,
+  `notifycation_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_infor_notify_notifycation1_idx` (`notifycation_id` ASC),
+  CONSTRAINT `fk_infor_notify_notifycation1`
+    FOREIGN KEY (`notifycation_id`)
+    REFERENCES `notifycation` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin;

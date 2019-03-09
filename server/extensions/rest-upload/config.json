@@ -4,7 +4,7 @@
             "name": "upload",
             "summary": "Upload API",
             "method": "POST",
-            "path": "/upload",
+            "path": "/upload?name={name}&dir={dir}",
             "source": "module.js",
             "function": "upFile",
             "consumes": [
