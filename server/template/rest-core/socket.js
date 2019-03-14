@@ -6,7 +6,8 @@ class SocketIO {
         this.init();
     }
     init(){
-        this.io.on('connect',(socket)=>{
+        console.log("init", );
+        this.io.on('connection',(socket)=>{
             console.log('a user');
         })
     }

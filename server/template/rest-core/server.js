@@ -27,16 +27,26 @@ class Server {
     }
     setupMiddleware(dirLog) {
         this.app.use(cors(config.data.GLOBAL.cors))
-        this.app.use(fileUpload({limits: limit*1024 *1024}));
-        this.app.use(bodyParser.urlencoded({extended: false}));
-        this.app.use(bodyParser.json({limit: `${limit}Mb`}));
-        console.log(path.join(this.rootPath,config.global('server')['static']));
-        this.app.use(express.static(path.join(this.rootPath,config.global('server')['static'])));
-        this.app.use(morgan('combined',{stream: fs.createWriteStream(dirLog?dirLog:'./access.log',{flags:'a'})}));
+        this.app.use(fileUpload({
+            limits: limit * 1024 * 1024
+        }));
+        this.app.use(bodyParser.urlencoded({
+            extended: false
+        }));
+        this.app.use(bodyParser.json({
+            limit: `${limit}Mb`
+        }));
+        console.log(path.join(this.rootPath, config.global('server')['static']));
+        this.app.use(express.static(path.join(this.rootPath, config.global('server')['static'])));
+        this.app.use(morgan('combined', {
+            stream: fs.createWriteStream(dirLog ? dirLog : './access.log', {
+                flags: 'a'
+            })
+        }));
     }
 
     setupRouter() {
-        this.app.use('/' , new WebRouter().getRouter());
+        this.app.use('/', new WebRouter().getRouter());
         this.app.use('/doc', SwaggerClient.serve, SwaggerClient.setup());
         this.app.use('/api/ext', new ExtRouter(this.rootPath).getRouter());
         this.app.use('/api', new ApiRouter().getRouter());
@@ -46,7 +56,7 @@ class Server {
         //     console.log('Server is running at ... ' + config.global('server')['port']);
         // });
         new SocketIO(this.http);
-        this.app.listen(config.global('server')['port'], () => {
+        this.http.listen(config.global('server')['port'], () => {
             console.log('Server is running at ... ' + config.global('server')['port']);
         });
     }
