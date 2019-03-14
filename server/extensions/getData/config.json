@@ -1,0 +1,18 @@
+{
+    "modules": [
+        {
+            "name": "Get Role User",
+            "summary": "Get Role",
+            "method": "GET",
+            "path": "/get-role?id={id}",
+            "source": "module.js",
+            "function": "getRolers",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "number"
+                }
+            ]
+        }
+    ]
+}
