@@ -5,12 +5,12 @@
     "static": "public"
   },
   "database": {
-    "host": "210.211.96.153",
+    "host": "0.0.0.0",
     "driver": "mysql",
     "user": "root",
     "port": 3306,
-    "password": "toor",
-    "name": "classOnline"
+    "password": "root@123",
+    "name": "hocOnline"
   },
   "cors":{
     "origin": "*",
