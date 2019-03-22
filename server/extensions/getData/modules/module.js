@@ -6,6 +6,7 @@ class Notify {
     }
 
     async getRolers(req, res) {
+        console.log("req", req);
         let userId = req.query.id;
         console.log(userId);
         let data = await this.db("user_has_roles").select("*")

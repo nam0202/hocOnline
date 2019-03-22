@@ -28,16 +28,19 @@ class LoginModule {
             const users = await this.db('login').select('*').join('user','user.id','login.user_id').where({
                 username: body.username,
             });
+            console.log("username ", users);
             const user = users[0];
             if (!!user) {
                 const isCorrectPassword = bcrypt.compareSync(body.password, user.password);
                 if(!isCorrectPassword) {
                     return res.status(401).send('Wrong UserName or PassWord');
                 }else {
+                    
                     const token = jwt.sign({
                             Id: user.id,
-                            userName: user.username,
-                            Role: user.role
+                            userName: user.name,
+                            Role: user.role,
+                            avatar : user.facebook
                         }, 'Bearer', {expiresIn: 3600 * 24});
                     res.status(200).send({ Authorization: true, token: token });
                 }

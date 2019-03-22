@@ -221,6 +221,12 @@
     },
     {
       "notifycation": {
+        "ref": [
+          {
+            "one": "infor_notify",
+            "key": "id"
+          }
+        ],
         "api": "all",
         "properties": [{
             "name": "id",
@@ -244,6 +250,7 @@
     {
       "infor_notify": {
         "api": "all",
+        
         "properties": [{
             "name": "id",
             "type": "number"
