@@ -42,7 +42,7 @@ class Notify {
     }
 
     async saveNotify(req,res){
-       
+        let data = req.body;
         for(let i=0;i<data.length;i++){
             data[i].data = JSON.stringify(data[i].data);
             this.db("notifycation").insert(data[i]).then(res=>{
