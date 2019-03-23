@@ -35,7 +35,11 @@ http://localhost:8222/api/news?page=1&limit=2&ref=["members","category"]&map=["u
 ```
 
 ## Fetch call api
+
+
 ```js
+
+let a = new Date();
 fetch(`http://localhost:3000/api/ext/get-notify?day=${a}`)
   .then(function(response) {
     return response.json();
