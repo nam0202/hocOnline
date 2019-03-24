@@ -8,9 +8,9 @@
     "host": "210.211.96.153",
     "driver": "mysql",
     "user": "root",
-    "port": 3306,
+    "port": 3336,
     "password": "toor",
-    "name": "classOnline"
+    "name": "hocOnline"
   },
   "cors":{
     "origin": "*",

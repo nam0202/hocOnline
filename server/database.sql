@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.25, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: classOnline
+-- Host: localhost    Database: hocOnline
 -- ------------------------------------------------------
 -- Server version	5.7.25-0ubuntu0.18.04.2
 
@@ -264,6 +264,32 @@ INSERT INTO `login` VALUES (2,'admin','$2a$10$ERnPzYh2IAFEDkmFFPug2OAaWU5T/KoW6t
 UNLOCK TABLES;
 
 --
+-- Table structure for table `notifycation`
+--
+
+DROP TABLE IF EXISTS `notifycation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notifycation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dayTitle` varchar(10) DEFAULT NULL,
+  `dayDetail` date DEFAULT NULL,
+  `data` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notifycation`
+--
+
+LOCK TABLES `notifycation` WRITE;
+/*!40000 ALTER TABLE `notifycation` DISABLE KEYS */;
+INSERT INTO `notifycation` VALUES (1,'Thứ 6','2019-03-29','[{\"time\":\"07:00 AM\",\"content\":\"Nhớ lịch học lớp chúng ta là 15h chiều mai (thứ 7) nhé bạn \",\"isAlarm\":false},{\"time\":\"07:00 AM\",\"content\":\"Bạn nhớ hoàn thành bài tập đầy đủ trước khi đến lớp nhé! \",\"isAlarm\":false}]'),(2,'Thứ 5','2019-03-28','[{\"timeData\":\"07:00\",\"content\":\"Ngày mai là hạn cuối nộp bài tập về nhà. Bạn nhớ hoàn thành bài tập và đẩy lên Github nhé!\",\"isAlarm\":true}]'),(3,'Thứ 6','2019-03-29','[{\"timeData\":\"07:00\",\"content\":\"Nhớ lịch học lớp chúng ta là 15h chiều mai (thứ 7) nhé bạn\",\"isAlarm\":false},{\"timeData\":\"07:00\",\"content\":\"Bạn nhớ hoàn thành bài tập đầy đủ trước khi đến lớp nhé!\",\"isAlarm\":false}]'),(4,'Thứ 5','2019-03-28','[{\"timeData\":\"07:00\",\"content\":\"Ngày mai là hạn cuối nộp bài tập về nhà. Bạn nhớ hoàn thành bài tập và đẩy lên Github nhé!\",\"isAlarm\":true}]'),(5,'Thứ 6','2019-03-29','[{\"timeData\":\"07:00\",\"content\":\"Nhớ lịch học lớp chúng ta là 15h chiều mai (thứ 7) nhé bạn\",\"isAlarm\":false},{\"timeData\":\"07:00\",\"content\":\"Bạn nhớ hoàn thành bài tập đầy đủ trước khi đến lớp nhé!\",\"isAlarm\":false}]');
+/*!40000 ALTER TABLE `notifycation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -396,44 +422,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-08  8:40:07
-
--- -----------------------------------------------------
--- Table `hocOnline`.`notifycation`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `notifycation` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(200) NULL,
-  `days` DATE NULL,
-  `class_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_notifycation_class1_idx` (`class_id` ASC),
-  CONSTRAINT `fk_notifycation_class1`
-    FOREIGN KEY (`class_id`)
-    REFERENCES `class` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_bin;
-
-
--- -----------------------------------------------------
--- Table `hocOnline`.`infor_notify`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `infor_notify` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `time` TIME NULL,
-  `content` TEXT NULL,
-  `isAlarm` INT NULL DEFAULT 1,
-  `notifycation_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_infor_notify_notifycation1_idx` (`notifycation_id` ASC),
-  CONSTRAINT `fk_infor_notify_notifycation1`
-    FOREIGN KEY (`notifycation_id`)
-    REFERENCES `notifycation` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_bin;
+-- Dump completed on 2019-03-22 11:50:25

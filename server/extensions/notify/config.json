@@ -3,7 +3,7 @@
         {
             "name": "GetNotify",
             "summary": "Get Notify",
-            "method": "GET",
+            "method": "POST",
             "path": "/get-notify",
             "source": "module.js",
             "function": "getNotify",
