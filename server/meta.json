@@ -1,10 +1,12 @@
 {
-  "definitions": [
-    {
+  "definitions": [{
       "user": {
+        "ref": [{
+          "many": "user_has_roles",
+          "key": "Roles_id"
+        }],
         "api": "all",
-        "properties": [
-          {
+        "properties": [{
             "name": "id",
             "type": "number"
           },
@@ -25,15 +27,12 @@
     },
     {
       "login": {
-        "ref": [
-          {
-            "one": "user",
-            "key": "user_id"
-          }
-        ],
+        "ref": [{
+          "one": "user",
+          "key": "user_id"
+        }],
         "api": "all",
-        "properties": [
-          {
+        "properties": [{
             "name": "id",
             "type": "number"
           },
@@ -55,8 +54,7 @@
     {
       "roles": {
         "api": "all",
-        "properties": [
-          {
+        "properties": [{
             "name": "id",
             "type": "number"
           },
@@ -69,15 +67,12 @@
     },
     {
       "type_class": {
-        "ref": [
-          {
-            "many": "class",
-            "key": "type_id"
-          }
-        ],
+        "ref": [{
+          "many": "class",
+          "key": "type_id"
+        }],
         "api": "all",
-        "properties": [
-          {
+        "properties": [{
             "name": "id",
             "type": "number"
           },
@@ -91,8 +86,7 @@
     {
       "class": {
         "api": "all",
-        "properties": [
-          {
+        "properties": [{
             "name": "id",
             "type": "number"
           },
@@ -110,14 +104,11 @@
     {
       "data": {
         "api": "all",
-        "ref": [
-          {
-            "one": "Post",
-            "key": "post_id"
-          }
-        ],
-        "properties": [
-          {
+        "ref": [{
+          "one": "Post",
+          "key": "post_id"
+        }],
+        "properties": [{
             "name": "id",
             "type": "number"
           },
@@ -126,7 +117,7 @@
             "type": "string"
           },
           {
-            "name": "localtion",
+            "name": "location",
             "type": "string"
           },
           {
@@ -139,8 +130,7 @@
     {
       "Post": {
         "api": "all",
-        "ref": [
-          {
+        "ref": [{
             "many": "data",
             "key": "post_id"
           },
@@ -157,33 +147,41 @@
             "key": "type_post_id"
           },
           {
-            "many":"Comment",
-            "key":"post_id"
+            "many": "Comment",
+            "key": "post_id"
           }
         ],
-        "properties": [
-          {
+        "properties": [{
             "name": "content",
             "type": "string"
           },
           {
             "name": "created",
             "type": "string"
+          },
+          {
+            "name": "user_id",
+            "type": "number"
+          },
+          {
+            "name": "class_id",
+            "type": "number"
+          },
+          {
+            "name": "type_post_id",
+            "type": "number"
           }
         ]
       }
     },
     {
       "type_post": {
-        "ref": [
-          {
-            "many": "Post",
-            "key": "type_post_id"
-          }
-        ],
+        "ref": [{
+          "many": "Post",
+          "key": "type_post_id"
+        }],
         "api": "all",
-        "properties": [
-          {
+        "properties": [{
             "name": "id",
             "type": "number"
           },
@@ -195,72 +193,101 @@
       }
     },
     {
-      "Comment":{
-        "api":"all",
-        "ref":[
-          {
-            "one":"Post",
-            "key":"Post_id"
+      "Comment": {
+        "api": "all",
+        "ref": [{
+            "one": "Post",
+            "key": "Post_id"
           },
           {
-            "one":"user",
-            "key":"user_id"
+            "one": "user",
+            "key": "user_id"
           }
         ],
-        "properties":[
+        "properties": [{
+            "name": "Content",
+            "type": "string"
+          },
           {
-            "name":"Content",
-            "type":"string"
+            "name": "Post_id",
+            "type": "number"
+          },
+          {
+            "name": "user_id",
+            "type": "string"
           }
         ]
       }
     },
     {
-      "notifycation":{
-        "api":"all",
-        "properties":[
+      "notifycation": {
+        "ref": [
           {
-            "name":"id",
-            "type":"number"
+            "one": "infor_notify",
+            "key": "id"
+          }
+        ],
+        "api": "all",
+        "properties": [{
+            "name": "id",
+            "type": "number"
           },
           {
-            "name":"title",
-            "type":"string"
+            "name": "title",
+            "type": "string"
           },
           {
-            "name":"days",
-            "type":"time"
+            "name": "days",
+            "type": "time"
           },
           {
-            "name":"class_id",
-            "type":"number"
+            "name": "class_id",
+            "type": "number"
           }
         ]
       }
     },
     {
-      "infor_notify":{
-        "api":"all",
-        "properties":[
-          {
-            "name":"id",
-            "type":"number"
+      "infor_notify": {
+        "api": "all",
+        
+        "properties": [{
+            "name": "id",
+            "type": "number"
           },
           {
-            "name":"time",
-            "type":"time"
+            "name": "time",
+            "type": "time"
           },
           {
-            "name":"content",
-            "type":"string"
+            "name": "content",
+            "type": "string"
           },
           {
-            "name":"isAlarm",
-            "type":"number"
+            "name": "isAlarm",
+            "type": "number"
           },
           {
-            "name":"notifycation_id",
-            "type":"number"
+            "name": "notifycation_id",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "user_has_roles": {
+        "api": "all",
+         "ref": [{
+           "many": "roles",
+           "key": "User_id"
+         }],
+        "properties": [{
+            "name": "User_id",
+            "type": "number"
+          },
+          {
+            "name": "Roles_id",
+            "type": "number"
           }
         ]
       }
