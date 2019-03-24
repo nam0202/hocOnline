@@ -6,7 +6,15 @@ class Notify {
     }
 
     async getNotify(req, res) {
-        let data = await this.db("notifycation").select("*");
+        let date = req.query.day;
+        date = new Date(date);
+        let startDate = new Date(date.getFullYear(),date.getMonth(),date.getDate());
+        let day = 7 - startDate.getDay();
+        let endDate = new Date(startDate.getFullYear(),startDate.getMonth(),startDate.getDate()+day);
+        let data = await this.db("notifycation")
+                                .select("*")
+                                .where('dayDetail','>=',startDate)
+                                .where('dayDetail','<=',endDate);
         for(let i=0;i<data.length;i++){
             data[i].data = JSON.parse(data[i].data);
         }

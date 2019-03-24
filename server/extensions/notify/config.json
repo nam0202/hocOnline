@@ -3,14 +3,14 @@
         {
             "name": "GetNotify",
             "summary": "Get Notify",
-            "method": "POST",
-            "path": "/get-notify",
+            "method": "GET",
+            "path": "/get-notify?day={day}",
             "source": "module.js",
             "function": "getNotify",
             "properties": [
                 {
-                    "name": "class_id",
-                    "type": "number"
+                    "name": "day",
+                    "type": "date"
                 }
             ]
         },
