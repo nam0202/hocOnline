@@ -7,7 +7,7 @@ class Notify {
 
     async getNotify(req, res) {
         let date = req.query.day;
-        date = new Date(date);
+        date = new Date(date.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
         let startDate = new Date(date.getFullYear(),date.getMonth(),date.getDate());
         let day = 7 - startDate.getDay();
         let endDate = new Date(startDate.getFullYear(),startDate.getMonth(),startDate.getDate()+day);
